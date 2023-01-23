@@ -167,9 +167,11 @@ head(cyrus3)
 head(totalcyrusMass)
 data.frame(Data2)
 
+pdf("002_massPlot.pdf")
 par(las=1, mar=c(5,5,1,1), mgp=c(2, 0.5, 0), tck=-0.01)
 plot(as.numeric(names(totalMass)), totalMass, type="b", pch=16, xlab= "Age in days", ylab=" Mass in kg", col="blue",xlim=c(0,1400),ylim=c(0, 25))
 title("Beren and Cyrus Age Vs. Mass")
 points(cyrus3$age[cyrusMass],cyrus3$value[cyrusMass]/1000, pch=16, type="b",col="red",xlab="Age in days",ylab="Mass in kg")
 legend(1000,6,legend=c("Beren","Cyrus"),col=c("blue","red"),lty=1:1,cex=0.8,title="Kids",text.font=4,bg="white")
-pdf("002_massPlot.pdf")
+dev.off()
+
