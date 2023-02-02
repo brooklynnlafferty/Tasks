@@ -1,3 +1,6 @@
+source("http://jonsmitchell.com/code/fxn05.R")
+setwd('~/Desktop/Evolution/Tasks/Task_04')
+
 results<- read.csv("http://jonsmitchell.com/data/biol112labresults.csv",stringsAsFactors=F)
 counts<- results[,c("yellow","red","green","blue","black","tan")]
 backgrounds<- c("White","Red","Yellow","Green","Blue","Black")
@@ -13,6 +16,9 @@ propSig<- length(which(Chisqs> 11.70))/length(Chisqs)
 percSig<- round(100*propSig)
 par(las=1,mar=c(4,4,1,1),mgp=c(2,0.5,0),tck=-0.01,cex.axis=1)
 hist(Chisqs, main="",xlab="chi-squared values",ylab="frequency")
+dev.off()
+
+pdf("004_simsPlot.pdf")
 par(las=1,mar=c(4,4,1,1),mgp=c(2,0.5,0),tck=-0.01,cex.axis=1)
 plot(1,1,xlim=c(0,400),ylim=c(1,8.5),xlab="",ylab="",type="n",yaxt="n")
 axis(2, at=1:length(backgrounds),labels=backgrounds)
@@ -49,8 +55,7 @@ names(Fit)<- 1:6
 Simulation6<- simDraws(1e4,w=Fit)
 addHist(Y=8, Dat=Simulation6, Color=rgb(0,0,0,0.25))
 mtext(side=2,at=8,line=0,"sel.sim.")
-pdf("004_sims.pdf")
 Simulation7<- c(Simulation2, Simulation3,Simulation4,Simulation5,Simulation6)
 addHist(Y=8,Dat=Simulation7, Color=rgb(0,0,1,0.25))
 dev.off()
-dev.off()
+
