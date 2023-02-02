@@ -65,6 +65,7 @@ ManySiblings<- replicate (1e3,length(intersect(Focus,makeBaby(Brenda,Alan)))/len
 quantile(ManySiblings)
 mean(ManySiblings)
 head(ManySiblings)
-pdf("003_relatePlot")
+pdf("003_relatePlot.pdf")
 hist(ManySiblings)
 #The larger amount of siblings, the more related the siblings will be
+dev.off()
