@@ -1,6 +1,8 @@
 setwd('~/Desktop/Evolution/Tasks/Project')
 Data<- read.csv('ProjectData.csv')
-head (Data)
+head(Data)
 
 
-#hypothesis: Eventually the black form will go to fixation. 
+
+
+#the black body bees will go to fixation
